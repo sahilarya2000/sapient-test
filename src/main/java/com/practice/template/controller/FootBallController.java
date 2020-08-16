@@ -24,7 +24,8 @@ public class FootBallController {
     public ResponseEntity<StandingAPIResponse> checkStandings(@RequestParam("country_name") String countryName,
                                                               @RequestParam("league_name")  String leagueName,
                                                               @RequestParam("team_name") String teamName){
-
+        log.info("[checkStandings]called for countryName {} , leagueName {} and teamName ",
+                countryName,leagueName,teamName);
         return new ResponseEntity<StandingAPIResponse>(footBallService.standing(countryName,leagueName,teamName),HttpStatus.OK);
     }
 
